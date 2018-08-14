@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+<script>
+function startTime() {
+    var today = new Date();
+	var year = today.getFullYear();
+	var month = today.getMonth() + 1;
+	var day = today.getDate();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    "Date: "+year + "." + month + "." + day +" Time: "+ h + "T "+ m + "M "+ s + "S";
+    var t = setTimeout(startTime, 1000);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+}
+</script>
+
+</head>
+
+<body onload="startTime()">
+<div id="txt"></div>
+
+</body>
+</html>
